@@ -92,6 +92,7 @@ function App() {
 
       // Since 'no-cors' returns an OPAQUE response (you can't read the result),
       // we just assume success if it didn't throw an error.
+      console.log("Attendance submitted successfully");
       setStep("success");
       
     } catch (error) {
