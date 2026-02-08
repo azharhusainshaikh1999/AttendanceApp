@@ -87,6 +87,7 @@ function App() {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: formBody.toString(),
+        redirect: "follow" // <--- ADD THIS LINE
       });
 
       // Since 'no-cors' returns an OPAQUE response (you can't read the result),
