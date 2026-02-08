@@ -99,7 +99,7 @@ function App() {
   // --- 4. RENDER UI ---
   return (
     <div style={{ padding: '20px', maxWidth: '400px', margin: '0 auto', fontFamily: 'Arial' }}>
-      <h1>🏢 Office Attendance</h1>
+      <h1>🏢 Office Attendance v1.0</h1>
 
       {step === 'loading' && <p>Getting your location...</p>}
 
