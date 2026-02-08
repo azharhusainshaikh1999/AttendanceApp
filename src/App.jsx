@@ -3,7 +3,7 @@ import './App.css';
 
 // --- CONFIGURATION ---
 // 1. PUT YOUR GOOGLE APPS SCRIPT URL HERE
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw7eMn-ctKaART3jp7P4OF18RR2AxrPcYouKGRSebuTaIWhPMN0ee2L-iDKEozRxZPTxQ/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxL8kRajL7hfL9rpgdTatpu6BVdzaTz3s1j0g1DfgzGeEHCiNVXyST0iGMZ8A8bwwYJjA/exec";
 
 // 2. SET YOUR OFFICE COORDINATES (Example: Eiffel Tower)
 const TARGET_LAT = 19.0259881;
