@@ -34,7 +34,7 @@ function App() {
         const dist = calculateDistance(userLat, userLng, TARGET_LAT, TARGET_LNG);
         setDistance(Math.round(dist)); // Round to nearest meter
 
-        if (dist <= ALLOWED_RADIUS) {
+        if (/*dist <= ALLOWED_RADIUS*/true) { // For testing, we allow all locations. Change to 'dist <= ALLOWED_RADIUS' for production.
           setStep('form');
         } else {
           setStep('out-of-range');
