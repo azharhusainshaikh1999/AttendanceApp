@@ -86,6 +86,7 @@ function App() {
       
       setStep('success');
     } catch (error) {
+      console.error("Error submitting attendance:", error);
       alert("Error submitting attendance");
     } finally {
       setSubmitting(false);
