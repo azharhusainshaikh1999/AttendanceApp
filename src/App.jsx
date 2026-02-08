@@ -69,19 +69,22 @@ function App() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
+    const formBody = new URLSearchParams();
+    formBody.append('name', formData.name);
+    formBody.append('type', formData.type);
+
     try {
-      // We use 'no-cors' mode to post to Google Scripts from a browser
       await fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors', 
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(formData),
+        body: formBody.toString(),
       });
       
       setStep('success');
