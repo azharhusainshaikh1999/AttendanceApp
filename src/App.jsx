@@ -73,24 +73,29 @@ function App() {
     e.preventDefault();
     setSubmitting(true);
 
+    // Create a FormData object - this mimics a standard HTML form submission
+    // which browsers trust more than JSON data.
     const formBody = new URLSearchParams();
-    formBody.append('name', formData.name);
-    formBody.append('type', formData.type);
+    formBody.append("name", formData.name);
+    formBody.append("type", formData.type);
 
     try {
       await fetch(SCRIPT_URL, {
-        method: 'POST',
-        // mode: 'no-cors', 
+        method: "POST",
+        mode: "no-cors", // <--- THIS IS CRITICAL
         headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify(formData),
+        body: formBody.toString(),
       });
+
+      // Since 'no-cors' returns an OPAQUE response (you can't read the result),
+      // we just assume success if it didn't throw an error.
+      setStep("success");
       
-      setStep('success');
     } catch (error) {
-      console.error("Error submitting attendance:", error);
-      alert("Error submitting attendance");
+      console.error("Submission Error:", error);
+      alert("Error submitting attendance. Check your internet connection.");
     } finally {
       setSubmitting(false);
     }
@@ -99,7 +104,7 @@ function App() {
   // --- 4. RENDER UI ---
   return (
     <div style={{ padding: '20px', maxWidth: '400px', margin: '0 auto', fontFamily: 'Arial' }}>
-      <h1>🏢 Office Attendance v1.0</h1>
+      <h1>🏢 Office Attendance v1.1</h1>
 
       {step === 'loading' && <p>Getting your location...</p>}
 
